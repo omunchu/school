@@ -1,49 +1,21 @@
 package chap12;
 
-public class TimeAccount {
-	private String name;
-	private String no;
-	private long balance;
+public class TimeAccount extends Account {
+	/** 定期の預金残高 */
 	private long timeBalance;
 
-
-	public TimeAccount(String name, String no, long balance, long timeBalance) {
-		this.name = name;
-		this.no = no;
-		this.balance = balance;
+	TimeAccount(String name, String no, long balance, long timeBalance) {
+		super(name, no, balance);
 		this.timeBalance = timeBalance;
 	}
 
-
-	public String getName() {
-		return name;
-	}
-
-	public String getNo() {
-		return no;
-	}
-
-	public long getBalance() {
-		return balance;
-	}
-
-	public long getTimeBalance() {
+	long getTimeBalance() {
 		return timeBalance;
 	}
 
-
-	void deposit(long k){
-		balance += k;
-	}
-
-	void withdraw(long k){
-		balance -= k;
-	}
-
-	void cancel(){
-		balance += timeBalance;
+	/** 定期預金を解約して普通預金に移す */
+	void cansel(){
+		setBalance(getBalance() + timeBalance);
 		timeBalance = 0;
 	}
-
-
 }
