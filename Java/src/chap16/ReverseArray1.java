@@ -42,6 +42,7 @@ public class ReverseArray1 {
 		for(int i = 0 ; i < num ; i++){
 			System.out.println("x[" + i + "] = " + x[i]);
 		}
+		stdIn.close();
 
 	}
 
